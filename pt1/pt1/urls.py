@@ -21,4 +21,5 @@ urlpatterns = [
     path('song/', include('song.urls')),
     path('user/', include('user.urls')),
     path('album/', include('album.urls')),
+    path('evaluation/', include('evaluation.urls')),
 ]

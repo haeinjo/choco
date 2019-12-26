@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import SongOwn, SongCovered
 
+
 class SongOwnSerializer(serializers.ModelSerializer):
     """
     date: 2019 - 12 - 11

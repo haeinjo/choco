@@ -19,6 +19,7 @@ class SongOwn(models.Model):
     # ))
     )
     lyrics = models.CharField(verbose_name="가사")
+    comment = models.TextField(verbose_name="평가")
     file_path = models.CharField(max_length=512, verbose_name="파일경로")
     register_date = models.DateTimeField(auto_now_add=True, verbose_name="등록날짜")
 
@@ -43,6 +44,7 @@ class SongCovered(models.Model):
     vocal = models.CharField(max_length=64, verbose_name="가수")
     vocal_origin = models.CharField(max_length=64, verbose_name="원곡 가수")
     lyrics = models.CharField(verbose_name="가사")
+    comment = models.TextField(verbose_name="평가")
     genre = models.CharField(max_length=32, verbose_name="장르")
     file_path = models.CharField(max_length=512, verbose_name="파일경로")    
     register_date = models.DateTimeField(auto_now_add=True, verbose_name="등록날짜")
