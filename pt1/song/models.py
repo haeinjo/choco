@@ -7,18 +7,18 @@ class SongOwn(models.Model):
     madeby: haein
     des: 자작곡
     """
-    album = models.ForeignKey('album.AlbumOwn', none=True, on_delete=models.CASCADE, verbose_name='앨범')
-    user = models.ForeignKey('user.CUser', noen=True, on_delete=models.CASCADE, verbose_name='사용자')
+    album = models.ForeignKey('album.AlbumOwn', null=True, on_delete=models.CASCADE, verbose_name='앨범')
+    user = models.ForeignKey('user.CUser', null=True, on_delete=models.CASCADE, verbose_name='사용자')
     title = models.CharField(max_length=128, verbose_name="노래제목")
     composer = models.CharField(max_length=64, verbose_name="작곡가")
     lyricist = models.CharField(max_length=64, verbose_name="작사가")
-    vocal = models.CharField(maX_length=64, verbose_name="가수")
+    vocal = models.CharField(max_length=64, verbose_name="가수")
     genre = models.CharField(max_length=32, verbose_name="장르",\
     # choices=(
     #     ('', ''),
     # ))
     )
-    lyrics = models.CharField(verbose_name="가사")
+    lyrics = models.TextField(verbose_name="가사")
     comment = models.TextField(verbose_name="평가")
     file_path = models.CharField(max_length=512, verbose_name="파일경로")
     register_date = models.DateTimeField(auto_now_add=True, verbose_name="등록날짜")
@@ -38,12 +38,12 @@ class SongCovered(models.Model):
     madeby: haein
     des: 커버곡
     """
-    album = models.ForeignKey('album.AlbumCovered', none=True, on_delete=models.CASCADE, verbose_name='앨범')
-    user = models.ForeignKey('user.CUser', noen=True, on_delete=models.CASCADE, verbose_name='사용자')
+    album = models.ForeignKey('album.AlbumCovered', null=True, on_delete=models.CASCADE, verbose_name='앨범')
+    user = models.ForeignKey('user.CUser', null=True, on_delete=models.CASCADE, verbose_name='사용자')
     title = models.CharField(max_length=128, verbose_name="노래제목")
     vocal = models.CharField(max_length=64, verbose_name="가수")
     vocal_origin = models.CharField(max_length=64, verbose_name="원곡 가수")
-    lyrics = models.CharField(verbose_name="가사")
+    lyrics = models.TextField(verbose_name="가사")
     comment = models.TextField(verbose_name="평가")
     genre = models.CharField(max_length=32, verbose_name="장르")
     file_path = models.CharField(max_length=512, verbose_name="파일경로")    

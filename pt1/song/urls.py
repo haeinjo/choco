@@ -1,5 +1,5 @@
 from django.urls import path
-from views import SongOwnList, SongOwnDetail, SongCoveredList, SongCoveredDetail
+from .views import SongOwnList, SongOwnDetail, SongCoveredList, SongCoveredDetail
 
 urlpatterns = [
     path('own/', SongOwnList.as_view()),

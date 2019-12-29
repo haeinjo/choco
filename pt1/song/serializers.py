@@ -10,7 +10,7 @@ class SongOwnSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SongOwn
-        field = '__all__'
+        fields = '__all__'
 
 
 class SongCoveredSerializer(serializers.ModelSerializer):
@@ -21,4 +21,4 @@ class SongCoveredSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SongCovered
-        field = '__all__'
+        fields = '__all__'

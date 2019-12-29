@@ -1,5 +1,5 @@
 from django.urls import path
-from views import AlbumOwnList, AlbumOwnDetail, AlbumCoveredList, AlbumCoveredDetail
+from .views import AlbumOwnList, AlbumOwnDetail, AlbumCoveredList, AlbumCoveredDetail
 
 urlpatterns = [
     path('own/', AlbumOwnList.as_view()),

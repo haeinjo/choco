@@ -10,7 +10,7 @@ class TagSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Tag
-        field = '__all__'
+        fields = '__all__'
 
 
 class SongOwnTagSerializer(serializers.ModelSerializer):
@@ -21,10 +21,10 @@ class SongOwnTagSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SongOwnTag
-        field = '__all__'
+        fields = '__all__'
 
 
-class SongCoveredSerializer(serializers.ModelSerializer):
+class SongCoveredTagSerializer(serializers.ModelSerializer):
     """
     date: 2019 - 12 - 13
     madeby: haein
@@ -32,4 +32,4 @@ class SongCoveredSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SongCoveredTag
-        field = '__all__'
+        fields = '__all__'

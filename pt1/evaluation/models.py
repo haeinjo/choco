@@ -48,7 +48,7 @@ class SongCoveredTag(models.Model):
     tag = models.ForeignKey('Tag', on_delete=models.CASCADE, verbose_name="태그")
 
     def __str__(self):
-        return tr(self.song) + "-" + str(self.tag)
+        return str(self.song) + "-" + str(self.tag)
 
     class Meta:
         db_table = 'song_covered_tag'
