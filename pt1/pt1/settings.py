@@ -10,6 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+
+
+###############################
+# mysql 사용시 설치
+# pip install pymysql
+
+# import pymysql
+
+# pymysql.install_as_MySQLdb()
+###############################
+
+
+
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -84,6 +98,23 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+
+#####################################################
+# mysql 설정
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'django_locker', # DB명
+#         'USER': '', # 데이터베이스 계정
+#         'PASSWORD': '', # 계정 비밀번호
+#         'HOST': '', # 데이테베이스 주소(IP)
+#         'PORT': '', # 데이터베이스 포트(보통은 3306)
+#     }
+# }
+#####################################################
+
 
 
 # Password validation
