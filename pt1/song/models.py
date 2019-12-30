@@ -20,7 +20,8 @@ class SongOwn(models.Model):
     )
     lyrics = models.TextField(verbose_name="가사")
     comment = models.TextField(verbose_name="평가")
-    file_path = models.CharField(max_length=512, verbose_name="파일경로")
+    bucketName = models.CharField(max_length=128, verbose_name="버킷이름")
+    key = models.CharField(max_length=128, verbose_name="파일 이름")
     register_date = models.DateTimeField(auto_now_add=True, verbose_name="등록날짜")
 
     def __str__(self):
@@ -46,7 +47,8 @@ class SongCovered(models.Model):
     lyrics = models.TextField(verbose_name="가사")
     comment = models.TextField(verbose_name="평가")
     genre = models.CharField(max_length=32, verbose_name="장르")
-    file_path = models.CharField(max_length=512, verbose_name="파일경로")    
+    bucketName = models.CharField(max_length=128, verbose_name="버킷이름")
+    key = models.CharField(max_length=128, verbose_name="파일 이름")   
     register_date = models.DateTimeField(auto_now_add=True, verbose_name="등록날짜")
 
     def __str__(self):
