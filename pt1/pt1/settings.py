@@ -58,6 +58,10 @@ INSTALLED_APPS = [
     'evaluation',
 ]
 
+INSTALLED_APPS += [
+    'storages',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -149,6 +153,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# AWS S3
+AWS_ACCESS_KEY_ID = 'AKIAUNLHB564TEVG5PBW'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_DEFAULT_ACL = 'public-read'
+AWS_REGION = 'ap-northeast-2'
+AWS_STORAGE_BUCKET_NAME = 'chocomusic'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
