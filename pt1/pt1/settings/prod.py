@@ -2,9 +2,9 @@
 # mysql 사용시 설치 필요
 # pip install pymysql
 
-import pymysql
+#import pymysql
 
-pymysql.install_as_MySQLdb()
+#pymysql.install_as_MySQLdb()
 ###############################
 
 from .base import *
@@ -28,11 +28,11 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_locker', # DB명
-        'USER': '', # 데이터베이스 계정
-        'PASSWORD': '', # 계정 비밀번호
-        'HOST': '', # 데이테베이스 주소(IP)
-        'PORT': '', # 데이터베이스 포트(보통은 3306)
+        'NAME': 'choco_db', # DB명
+        'USER': 'choco', # 데이터베이스 계정
+        'PASSWORD': 'ckdwltlf', # 계정 비밀번호
+        'HOST': '127.0.0.1', # 데이테베이스 주소(IP)
+        'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
 }
 #####################################################
