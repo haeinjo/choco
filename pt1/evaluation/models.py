@@ -56,3 +56,37 @@ class SongCoveredTag(models.Model):
         verbose_name_plural = '커버곡 - 태그'
 
 
+class ScoreOwn(models.Model):
+    """
+    date: 2020 - 01 - 13
+    madeby: haein
+    des: 커버곡 - 별점(Many To One)
+    """
+    song = models.ForeignKey('song.SongOwn', on_delete=models.CASCADE, verbose_name="자작곡")
+    score = models.IntegerField(verbose_name="점수")
+
+    def __str__(self):
+        return str(self.song) + "-" + str(self.score)
+
+    class Meta:
+        db_table = 'song_own_score'
+        verbose_name = '자작곡 - 점수'
+        verbose_name_plural = '자작곡 - 점수'
+
+
+class ScoreCovered(models.Model):
+    """
+    date: 2020 - 01 - 13
+    madeby: haein
+    des: 커버곡 - 태그(Many To One)
+    """
+    song = models.ForeignKey('song.SongCovered', on_delete=models.CASCADE, verbose_name="커버곡")
+    score = models.IntegerField(verbose_name="점수")
+
+    def __str__(self):
+        return str(self.song) + "-" + str(self.score)
+
+    class Meta:
+        db_table = 'song_covered_score'
+        verbose_name = "커버곡 - 점수"
+        verbose_name_plural = "커버곡 - 점수"
