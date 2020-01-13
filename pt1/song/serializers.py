@@ -22,3 +22,5 @@ class SongCoveredSerializer(serializers.ModelSerializer):
     class Meta:
         model = SongCovered
         fields = '__all__'
+
+

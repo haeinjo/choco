@@ -15,7 +15,9 @@ class SongOwn(models.Model):
     vocal = models.CharField(max_length=64, verbose_name="가수")
     genre = models.CharField(max_length=32, verbose_name="장르",\
     # choices=(
-    #     ('', ''),
+    #     ('ballad', ''),
+    #     ('classic', ''),
+    #     ('pop', '')
     # ))
     )
     lyrics = models.TextField(verbose_name="가사")
