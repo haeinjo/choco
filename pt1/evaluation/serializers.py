@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Tag, SongOwnTag, SongCoveredTag
+from .models import Tag, SongOwnTag, SongCoveredTag, ScoreOwn, ScoreCovered
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -32,4 +32,26 @@ class SongCoveredTagSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SongCoveredTag
+        fields = '__all__'
+
+
+class ScoreOwnSerializer(serializers.ModelSerializer):
+    """
+    date: 2020 - 01 - 13
+    madeby: haein
+    des: 자작곡 - 점수 serializer
+    """
+    class Meta:
+        model = ScoreOwn
+        fields = '__all__'
+
+
+class ScoreCoveredSerializer(serializers.ModelSerializer):
+    """
+    date: 2020 - 01 - 13
+    madeby: haein
+    des: 커버곡 - 점수 serializer
+    """
+    class Meta:
+        model = ScoreCovered
         fields = '__all__'
