@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 class SongOwn(models.Model):
     """
@@ -21,7 +21,7 @@ class SongOwn(models.Model):
     # ))
     )
     lyrics = models.TextField(verbose_name="가사")
-    comment = models.TextField(verbose_name="평가")
+    comment = models.TextField(null=True, verbose_name="평가")
     bucketName = models.CharField(max_length=128, verbose_name="버킷이름")
     key = models.CharField(max_length=128, verbose_name="파일 이름")
     register_date = models.DateTimeField(auto_now_add=True, verbose_name="등록날짜")
@@ -47,7 +47,7 @@ class SongCovered(models.Model):
     vocal = models.CharField(max_length=64, verbose_name="가수")
     vocal_origin = models.CharField(max_length=64, verbose_name="원곡 가수")
     lyrics = models.TextField(verbose_name="가사")
-    comment = models.TextField(verbose_name="평가")
+    comment = models.TextField(null=True, verbose_name="평가")
     genre = models.CharField(max_length=32, verbose_name="장르")
     bucketName = models.CharField(max_length=128, verbose_name="버킷이름")
     key = models.CharField(max_length=128, verbose_name="파일 이름")   
@@ -60,3 +60,17 @@ class SongCovered(models.Model):
         db_table = 'song_covered'
         verbose_name = '커버곡'
         verbose_name_plural = '커버곡'
+
+
+class SongRecommended(models.Model):
+    songOwn = models.ForeignKey('SongOwn', null=True, blank=True, on_delete=models.CASCADE, verbose_name='추천 할 자작곡')
+    songCovered = models.ForeignKey('SongCovered', null=True, blank=True, on_delete=models.CASCADE, verbose_name='추천 할 커버곡')
+    register_date = models.DateTimeField(auto_now_add=False, default=datetime.now, verbose_name="추천 날짜")
+
+    def __str__(self):
+        return str(self.songOwn) + str(self.songCovered) + ' ' + str(self.register_date)
+
+    class Meta:
+        db_table = 'song_recommended'
+        verbose_name = '추천곡'
+        verbose_name_plural = '추천곡'
