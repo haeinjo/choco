@@ -32,7 +32,7 @@ def songOwnPerAlbum(request, pk):
     """
     date: 2020 - 01 - 15
     madeby: haein
-    des: GET - 앨번에 수록된 자작곡
+    des: GET - 앨범에 수록된 자작곡
     """
     try:
         song_own_list = SongOwn.objects.filter(album=pk)
@@ -63,6 +63,24 @@ class SongCoveredList(generics.ListCreateAPIView):
     """
     queryset = SongCovered.objects.all()
     serializer_class = SongCoveredSerializer
+
+
+@api_view(['GET'])
+def songCoveredPerAlbum(request, pk):
+    """
+    date: 2020 - 01 - 15
+    madeby: haein
+    des: GET - 앨범에 수록된 커버곡
+    """
+    try:
+        song_covered_list = SongCovered.objects.filter(album=pk)
+    except AlbumCovered.DoesNotExist:
+        return httpResponse(status=404)
+    
+    #show songOwns of album which is pk
+    if request.method == 'GET':
+        serializer = SongCoveredSerializer(song_covered_list, many=True)
+        return Response(serializer.data)
 
 
 class SongCoveredDetail(generics.RetrieveUpdateDestroyAPIView):
