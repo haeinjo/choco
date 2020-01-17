@@ -69,7 +69,8 @@ class SongCovered(models.Model):
 class SongRecommended(models.Model):
     songOwn = models.ForeignKey('SongOwn', null=True, blank=True, on_delete=models.CASCADE, verbose_name='추천 할 자작곡')
     songCovered = models.ForeignKey('SongCovered', null=True, blank=True, on_delete=models.CASCADE, verbose_name='추천 할 커버곡')
-    register_date = models.DateTimeField(auto_now_add=False, default=datetime.now, verbose_name="추천 날짜")
+    recommended_date = models.DateField(auto_now_add=False, default=datetime.now, verbose_name="추천 날짜")
+    register_date = models.DateTimeField(auto_now_add=True, verbose_name="등록 날짜")
 
     def __str__(self):
         return str(self.songOwn) + str(self.songCovered) + ' ' + str(self.register_date)

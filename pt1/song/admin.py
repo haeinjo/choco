@@ -17,7 +17,8 @@ admin.site.register(SongCovered, SongCoveredAdmin)
 
 class SongRecommendedAdmin(admin.ModelAdmin):
     model = SongRecommended
-    list_display = ('songOwn', 'songCovered', 'register_date')
+    list_display = ('songOwn', 'songCovered', 'recommended_date')
+    list_display_links = ('songOwn', 'songCovered')
     # list_display = ('get_title', 'get_title2', 'register_date')
 
     # def get_title(self, obj):
