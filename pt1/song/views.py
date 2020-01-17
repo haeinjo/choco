@@ -1,5 +1,5 @@
-from song.models import SongOwn, SongCovered
-from song.serializers import SongOwnSerializer, SongCoveredSerializer
+from song.models import SongOwn, SongCovered, SongRecommended
+from song.serializers import SongOwnSerializer, SongCoveredSerializer, SongRecommendedSerializer
 from album.models import AlbumOwn, AlbumCovered
 from rest_framework import generics
 from rest_framework.decorators import api_view
@@ -82,6 +82,16 @@ class SongCoveredDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = SongCovered.objects.all()
     serializer_class = SongCoveredSerializer
+
+
+class SongRecommendedList(generics.ListCreateAPIView):
+    """
+    date: 2020 - 01 - 17
+    madeby: haein
+    des: GET, POST - 추천곡
+    """
+    queryset = SongRecommended.objects.all()
+    serializer_class = SongRecommendedSerializer
 
 
 # @api_view(['GET'])

@@ -66,6 +66,7 @@ class SongCovered(models.Model):
         verbose_name_plural = '커버곡'
 
 
+# have to setting timezone
 class SongRecommended(models.Model):
     songOwn = models.ForeignKey('SongOwn', null=True, blank=True, on_delete=models.CASCADE, verbose_name='추천 할 자작곡')
     songCovered = models.ForeignKey('SongCovered', null=True, blank=True, on_delete=models.CASCADE, verbose_name='추천 할 커버곡')

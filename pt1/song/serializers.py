@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SongOwn, SongCovered
+from .models import SongOwn, SongCovered, SongRecommended
 
 
 class SongOwnSerializer(serializers.ModelSerializer):
@@ -24,6 +24,17 @@ class SongCoveredSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class SongRecommendedSerializer(serializers.ModelSerializer):
+    """
+    date: 2020 - 01 - 17
+    madeby: haein
+    des: 추천곡 serializer
+    """
+    class Meta:
+        model = SongRecommended
+        fields = '__all__'
+
+        
 # class SongSerializer(serializers.Serializer):
 #     def __init__(self, *args, **kwargs):
 #         super(SongSerializer, self).__init__(*args, **kwargs)
