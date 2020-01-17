@@ -17,13 +17,14 @@ admin.site.register(SongCovered, SongCoveredAdmin)
 
 class SongRecommendedAdmin(admin.ModelAdmin):
     model = SongRecommended
-    list_display = ('get_title', 'get_title2', 'register_date')
+    list_display = ('songOwn', 'songCovered', 'register_date')
+    # list_display = ('get_title', 'get_title2', 'register_date')
 
-    def get_title(self, obj):
-        return obj.songOwn.title
-    def get_title2(self, obj):
-        return obj.songCovered.title
-    get_title.short_description = '추천 자작곡'
-    get_title2.short_description = '추천 커버곡'
+    # def get_title(self, obj):
+    #     return obj.songOwn.title
+    # def get_title2(self, obj):
+    #     return obj.songCovered.title
+    # get_title.short_description = '추천 자작곡'
+    # get_title2.short_description = '추천 커버곡'
 
 admin.site.register(SongRecommended, SongRecommendedAdmin)

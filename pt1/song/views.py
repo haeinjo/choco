@@ -5,16 +5,7 @@ from rest_framework import generics
 from rest_framework.decorators import api_view
 from django.http import HttpResponse
 from rest_framework.response import Response
-
-
-class SongList(generics.ListCreateAPIView):
-    """
-    date: 2019 - 12 - 11
-    madeby: haein
-    des: GET, POST - 자작곡 
-    """
-    queryset = SongOwn.objects.all()
-    serializer_class = SongOwnSerializer
+from rest_framework import status
 
 
 class SongOwnList(generics.ListCreateAPIView):
@@ -91,3 +82,15 @@ class SongCoveredDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = SongCovered.objects.all()
     serializer_class = SongCoveredSerializer
+
+
+# @api_view(['GET'])
+# def songList(request):
+#     """
+#     date: 2020 - 01 - 16
+#     madeby: haein
+#     des: GET - 전체곡
+#     """
+#     if request.method == 'GET':
+#         serializer = SongSerializer(many=True)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
