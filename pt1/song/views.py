@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework import status
+from datetime import datetime
 
 
 class SongOwnList(generics.ListCreateAPIView):
@@ -93,6 +94,22 @@ class SongRecommendedList(generics.ListCreateAPIView):
     queryset = SongRecommended.objects.all()
     serializer_class = SongRecommendedSerializer
 
+
+@api_view(['GET'])
+def songRecommendedToday(request):
+    """
+    date: 2020 - 01 - 17
+    madeby: haein
+    des: GET - 오늘의 추천곡
+    """
+    try:
+        song_recommended = SongRecommended.objects.filter(recommended_date = datetime.today().strftime("%Y-%m-%d"))
+    except SongRecommended.DoesNotExist:
+        return httpResponse(status=404)
+
+    if request.method == 'GET':
+        serializer = SongRecommendedSerializer(song_recommended, many=True)
+        return Response(serializer.data)
 
 # @api_view(['GET'])
 # def songList(request):

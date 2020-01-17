@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (SongOwnList, songOwnPerAlbum, SongOwnDetail, SongCoveredList, 
-    songCoveredPerAlbum, SongCoveredDetail, songOwnPerAlbum, SongRecommendedList)
+    songCoveredPerAlbum, SongCoveredDetail, songOwnPerAlbum, SongRecommendedList, songRecommendedToday)
 
 urlpatterns = [
     path('own/', SongOwnList.as_view()),
@@ -10,5 +10,6 @@ urlpatterns = [
     path('own/album/<int:pk>/', songOwnPerAlbum),
     path('covered/album/<int:pk>', songCoveredPerAlbum),
     path('recommended/', SongRecommendedList.as_view()),
+    path('recommended/today', songRecommendedToday),
     # path('', songList),
 ]
